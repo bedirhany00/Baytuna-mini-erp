@@ -38,7 +38,7 @@ services:
       - "8000:8000"
     environment:
       DATABASE_URL: postgresql://erp:erp123@postgres-a:5432/service_a_db
-      # JWT sozlesmesi: bu uc deger iki serviste de AYNI olmak zorunda.
+      # JWT sozlesmesi: bu uc deger iki serviste de AYNI olmak zorunda. 
       JWT_SECRET: ${JWT_SECRET}
       JWT_ISSUER: ${JWT_ISSUER:-MiniErp.ServiceA}
       JWT_AUDIENCE: ${JWT_AUDIENCE:-MiniErp.ServiceB}
@@ -50,10 +50,9 @@ services:
       SMTP_USER: ${SMTP_USER}
       SMTP_PASSWORD: ${SMTP_PASSWORD}
       SMTP_FROM: ${SMTP_FROM}
-      # Gun 16-17 yapay zeka ozeti ve soru-cevap (Google Gemini). Bos birakilirsa ozellik kapali kalir, sayisal ozet yine calisir.
+
       GEMINI_API_KEY: ${GEMINI_API_KEY}
       GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.6-flash}
-      # Gunluk ozet siparis verisini Servis B'den ceker.
       SERVICE_B_URL: ${SERVICE_B_URL:-http://service-b:8080}
     depends_on:
       - postgres-a
