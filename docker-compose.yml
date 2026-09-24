@@ -32,12 +32,12 @@ services:
 
   service-a:
     build: ./service-a
-    image: ghcr.io/unikpec/mini-erp-service-a:latest
+    image: ghcr.io/${GITHUB_OWNER}/mini-erp-service-a:latest
     restart: unless-stopped
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: postgresql://erp:erp123@postgres-a:5432/service_a_db
+      DATABASE_URL: "postgresql://erp:${POSTGRES_A_PASSWORD}@postgres-a:5432/service_a_db"
       # JWT sozlesmesi: bu uc deger iki serviste de AYNI olmak zorunda. 
       JWT_SECRET: ${JWT_SECRET}
       JWT_ISSUER: ${JWT_ISSUER:-MiniErp.ServiceA}
@@ -64,7 +64,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: erp
-      POSTGRES_PASSWORD: erp123
+      POSTGRES_PASSWORD: ${POSTGRES_A_PASSWORD}
       POSTGRES_DB: service_a_db
     volumes:
       - postgres_a_data:/var/lib/postgresql/data
