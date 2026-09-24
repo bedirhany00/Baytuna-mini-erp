@@ -109,7 +109,7 @@ pending ────────┤
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/UniKpec/Baytuna-mini-erp.git
+git clone https://github.com/bedirhany00/Baytuna-mini-erp.git
 cd Baytuna-mini-erp
 ```
 
